@@ -18,6 +18,7 @@ namespace EmailKit
                 Directory.CreateDirectory(workingFolder);
             }
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             foreach (FileInfo fi in di.GetFiles("*.eml"))
             {
                 MimeMessage message = MimeMessage.Load(fi.FullName);
@@ -30,7 +31,7 @@ namespace EmailKit
                         Directory.CreateDirectory(workingFolder);
                     }
 
-                    Console.WriteLine(message.Subject);
+                    Console.WriteLine($"Θέμα: {message.Subject}");
 
                     foreach (MimeEntity bodypart in message.BodyParts)
                     {
