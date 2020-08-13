@@ -1,0 +1,657 @@
+MIME-Version: 1.0
+Date: Wed, 12 Aug 2020 15:07:54 +0300
+From: 
+	=?utf-8?Q?Microsoft_=CE=95=CE=BB=CE=BB=CE=AC=CF=82?=
+	 <Microsoft@e-mail.microsoft.com>
+Subject: Learn the basics of Kubernetes all in 1 Resource Kit
+Thread-Topic: Learn the basics of Kubernetes all in 1 Resource Kit
+Message-ID: <45f8170d-3241-4f28-ac0a-47ae719c9c26@ind1s01mta1034.xt.local>
+To: "gcapnias@gmail.com" <gcapnias@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html>
+<html lang=3D"en">
+
+<head>
+    <meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type=
+">
+    <title>Kubernetes Up and Running
+    </title>
+
+</head>
+<style type=3D"text/css">
+    h1, h2, h3, h4 {
+     margin: 0;
+    }
+    .span {
+     display: block;
+     padding-bottom: 5px;
+    }
+    table {
+     border-collapse: collapse;
+    }
+    div, p, a, li, td {
+     -webkit-text-size-adjust: none;
+    }
+    .td_li {
+     width: 25px!important;
+    }
+    .smll_li {
+     font-weight: 500;
+    }
+    .span_cta2 {
+     color: #ffffff;
+     font-family: Segoe UI, sans-serif;
+     text-align: center;
+     font-size: 16px;
+     font-weight: bold;
+     padding: 10px 5px;
+     text-decoration: none !important;
+    }
+    .font_hero {
+     color: #000001;
+     font-size: 18px;
+     font-family: Segoe UI, sans-serif;
+     font-weight: 400;
+    }
+    .font_hero_cta {
+     color: #0D579C !important;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     font-weight: bold;
+     text-decoration: none;
+    }
+    .font_main {
+     color: #000001;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     text-align: left !important;
+    }
+    }
+    *[class].ul_margin {
+     color: black;
+     padding-left: 20px;
+     margin-bottom: 100px!important;
+    }
+    /* Responsive Styles */
+    @media screen and (max-width: 640px), screen and (max-device-width: 640=
+px) {
+    * {
+     margin: 10;
+     padding: 10;
+    }
+    body {
+     width: 100% !important;
+     text-align: center !important;
+     min-width: 320px;
+    }
+    .applelinks a {
+     color: #0D579C;
+     font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
+     text-align: left;
+     font-size: 16px;
+     line-height: 18px;
+     font-weight: 300;
+    }
+    *[id=3Dgmail] {
+     display: none !important;
+    }
+    *[class].center {
+     margin: 0 auto !important;
+    }
+    *[class].aligncenter {
+     text-align: center !important;
+    }
+    *[class].hauto {
+     height: auto !important;
+    }
+    *[class].width100perc {
+     width: 100% !important;
+    }
+    *[class].width90perc {
+     width: 90% !important;
+    }
+    *[class].width5perc {
+     width: 4% !important;
+    }
+    *[class].pad0 {
+     padding: 0px !important;
+    }
+    *[class].padt20 {
+     padding-top: 20px !important;
+    }
+    *[class].padb20 {
+     padding-bottom: 20px !important;
+    }
+    *[class].pad20 {
+     padding: 20px !important;
+    }
+    *[class].padlr20 {
+     padding-left: 20px !important;
+     padding-right: 20px !important;
+    }
+    *[class].padl20 {
+     padding-left: 20px !important;
+    }
+    *[class].padr20 {
+     padding-right: 20px !important;
+    }
+    *[class].font24 {
+     font-size: 24px !important;
+     line-height: 26px !important;
+    }
+    *[class].border10 {
+     border-right: 30px solid #E6E6E6 !important;
+     border-left: 30px solid #E6E6E6 !important;
+    }
+    *[class].floatnone {
+     float: none !important;
+     clear: both !important;
+    }
+    *[class].show {
+     display: block !important;
+     width: auto !important;
+     overflow: visible !important;
+     float: none !important;
+     max-height: inherit !important;
+     line-height: inherit !important;
+    }
+    *[class].bottomcta {
+     width: 100% !important;
+    }
+    *[class].td_li {
+     width: 25px !important;
+    }
+    *[class].p_sql {
+     font-size: 24px !important;
+    }
+    *[class].td_subbanner {
+     padding: 30px 0px !important;
+    }
+    *[class].td_follow {
+     padding-left: 0px! important;
+    }
+    #hero-image {
+     display: none !important;
+    }
+    *[class].td_block {
+     display: block;
+     width: 100% !important;
+    }
+    *[class].ul_margin {
+     margin-bottom: 10px!important;
+    }
+    *[class].table_height {
+     height: 10px;
+    }
+    *[class].table_width {
+     width: 100% !important;
+    }
+    *[class].ul_margin_t {
+     margin-top: 10px;
+     margin-bottom: 10px;
+    }
+    *[class].auto_img {
+     width: 155px !important;
+     height: auto !important;
+     display: block;
+    }
+    #hidden-tr {
+     display: block !important;
+     background-color: #E6E6E6 !important;
+    }
+    #blue_images {
+     width: 100% !important;
+     text-align: left !important;
+    }
+    .hidden_img {
+     display: none !important;
+    }
+    .scale2 {
+     width: 100% !important;
+    }
+    .inner {
+     width: 100% !important;
+     height: 200px !important;
+    }
+    .scale {
+     width: 480px !important;
+     display: block !important;
+     align: center !important;
+     height: auto !important;
+    }
+    .twocolumns {
+     width: 100% !important;
+     display: block;
+    }
+    .font_mob {
+     color: #000001;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     text-align: left !important;
+    }
+   =20
+    }
+    @media screen and (max-width: 540px), screen and (max-device-width: 540=
+px) {
+    *[class].td_block {
+     display: block;
+     width: 100% !important;
+    }
+    *[class].ul_margin {
+     margin-bottom: 10px!important;
+    }
+    .scale {
+     width: 300px !important;
+     display: block !important;
+     align: center !important;
+     height: auto !important;
+    }
+    .font_mob {
+     color: #000001;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     text-align: left !important;
+    }
+   =20
+    .twocolumns {
+     width: 100% !important;
+     display: block;
+    }
+    *[class].width5perc {
+     width: 4% !important;
+    }
+    *[class].td_block {
+     display: block;
+     width: 100% !important;
+    }
+    *[class].auto_img {
+     width: 155px !important;
+     height: auto !important;
+     display: block;
+    }
+    }
+    @media screen and (max-width: 420px), screen and (max-device-width: 420=
+px) {
+    *[class].hide {
+     display: none !important;
+    }
+    .scale {
+     width: 100% !important;
+     display: block !important;
+     align: center !important;
+     height: auto !important;
+    }
+    .font_mob {
+     color: #000001;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     text-align: left !important;
+    }
+   =20
+    .twocolumns {
+     width: 100% !important;
+     display: block;
+    }
+    *[class].width5perc {
+     width: 4% !important;
+    }
+    *[class].td_block {
+     display: block;
+     width: 100% !important;
+    }
+    *[class].auto_img {
+     width: 155px !important;
+     height: auto !important;
+     display: block;
+    }
+    }
+    @media screen and (max-width: 682px) {
+    #hero-image {
+     display: none !important;
+    }
+    #hero-text {
+     text-align: center !important;
+    }
+    #space {
+     width: 50% !important;
+    }
+    #hidden-tr {
+     display: block !important;
+     background-color: #E6E6E6 !important;
+    }
+    .font_hero_cta {
+     font-size: 12px !important;
+    }
+    .font_mob {
+     color: #000001;
+     font-size: 16px;
+     font-family: Segoe UI, sans-serif;
+     text-align: left !important;
+    }
+   =20
+    .scale {
+     width: 100% !important;
+     display: block !important;
+     align: center !important;
+     height: auto !important;
+    }
+    .twocolumns {
+     width: 100% !important;
+     display: block;
+    }
+    *[class].width5perc {
+     width: 4% !important;
+    }
+    *[class].td_block {
+     display: block;
+     width: 100% !important;
+    }
+    *[class].auto_img {
+     width: 155px !important;
+     height: auto !important;
+     display: block;
+    }
+    }
+    }
+</style>
+<body bgcolor=3D"#ffffff"     style=3D"background-color: #ffffff; color: #E=
+6E6E6; margin: 0px; padding: 0px; -webkit-text-size-adjust: none;"     text=
+=3D"#000001" yahoo=3D"fix"><style type=3D"text/css">
+div.preheader=20
+{ display: none !important; }=20
+</style>
+<div class=3D"preheader" style=3D"font-size: 1px; display: none !important;=
+">Build, deliver, and scale container-based applications faster with Kubern=
+etes.</div>
+
+    <table border=3D"0" height=3D"1" role=3D"presentation" width=3D"1">
+        <tr>
+            <td style=3D"width: 1px; height: 1px; line-height: 1px; font-si=
+ze: 1px; border: 0; color: #FFFFFF">
+                <img alt=3D"MSCDEPLOYED-ST241508" height=3D"1"             =
+        src=3D"https://pixel.app.returnpath.net/pixel.gif?r=3D10094b8875a5f=
+03e01d3af044d54e5f25ce1106a"                     width=3D"1" />
+               =20
+            </td>
+        </tr>
+    </table>
+   =20
+
+
+    <main>
+        <center>
+            <table bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"width100perc" role=3D"presentation"                 s=
+tyle=3D"width: 640px;" width=3D"640">
+                <tr>
+                    <!-- content #ffffff -->
+                    <td class=3D"width100perc" style=3D"background-color: w=
+hite;" width=3D"640">
+                        <!-- header -->
+                        <table bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation"                             =
+style=3D"width: 100%!important" width=3D"100%">
+                            <tr>
+                                <td align=3D"left" style=3D"color: #000001;=
+ font-family: Segoe UI, sans-serif;"                                     va=
+lign=3D"middle" width=3D"111">
+                                    <img alt=3D"Microsoft Header"          =
+                               src=3D"https://image.email.microsoftemail.co=
+m/lib/fe6f1570776401797716/m/5/56dee591-4737-4c0f-ae8b-0d314269cc14.png"   =
+                                      style=3D"display: block; border: 0" w=
+idth=3D"197" />
+                                </td>
+                                <td>&nbsp;</td>
+                                <td width=3D"4%">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <!-- Button / section 2 -->
+                        <table bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation"                             =
+width=3D"100%">
+                            <tr bgcolor=3D"#0078D4">
+                                <td bgcolor=3D"#0078D4" class=3D"twocolumns=
+" width=3D"50%">
+                                    <table bgcolor=3D"#0078D4" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"                                       =
+  role=3D"presentation" width=3D"100%">
+                                        <tr>
+                                            <td class=3D"width5perc" width=
+=3D"8%">&nbsp;</td>
+                                            <td align=3D"left"             =
+                                    style=3D"width: 320px; font-family: 'Se=
+goe UI', Tahoma, Geneva, Verdana, sans-serif; color: #ffffff; padding-botto=
+m:1px"                                                 valign=3D"middle">
+                                                <h1                        =
+                             style=3D"font-size: 24px; margin-top: 15px; di=
+splay: block; margin-bottom: 15px; color: #ffffff">
+                                                    Discover Kubernetes, th=
+e leading standard in container orchestration
+                                                </h1>
+                                            </td>
+                                            <td width=3D"8%" class=3D"width=
+5perc">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor=3D"#005AA3" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"                                       =
+  role=3D"presentation" width=3D"100%">
+                                        <tr>
+                                            <td bgcolor=3D"#0078D4" style=
+=3D"line-height:15px; font-size:15px" height=3D"15">
+                                                &nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align=3D"center" class=3D"scale"       =
+                              style=3D"padding: 0px; margin: 0px; backgroun=
+d-color: #005AA3" border=3D"0"                                     valign=
+=3D"middle" width=3D"50%">
+                                    <img alt=3D"Man in a field staring at t=
+he sunset" class=3D"scale"                                         src=3D"h=
+ttps://image.email.microsoftemail.com/lib/fe6f1570776401797716/m/5/4e802805=
+-f851-4ba0-88b6-8b49bce1047c.jpg"                                         s=
+tyle=3D"display: block; padding: 0px; margin: 0px; border-width:0px; width:=
+320px"                                         border=3D"0" width=3D"320" /=
+>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- //Button / section 2 -->
+                        <!-- Content -->
+                        <table bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation"                             =
+style=3D"font-family: Segoe UI, sans-serif;" width=3D"100%">
+                            <tr>
+                                <td style=3D"width: 4%;"></td>
+                                <td style=3D"color: #000001; font-size: 16p=
+x; display: block; font-family: Segoe UI, sans-serif; text-align: left;"   =
+                                  valign=3D"top">
+                                    <p style=3D"font-size: 16px; margin: 20=
+px 0px 20px 0px; padding: 0px;">
+                                        Dear customer,</p>
+
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 0px 20px 0px; padding: 0px;">
+                                        We have put together a collection o=
+f three e-Books that wil help you to gain the
+                                        knowledge and hands-on experience n=
+ecessary to start working with Kubernetes.
+                                    </p>
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 20px 20px 0px; padding: 0px;">
+                                        <strong><span style=3D"color:#005AA=
+3">Kubernetes: Up and Running</span></strong>
+                                        - This e-Book describes the Kuberne=
+tes cluster orchestrator and how its tools
+                                        and APIs can be used to improve the=
+ development, delivery, and maintenance of
+                                        distributed applications.</p>
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 20px 20px 0px; padding: 0px;">
+                                        <strong><span style=3D"color:#005AA=
+3">Designing Distributed Systems</span></strong>
+                                         - This e-Book will help you become=
+ better,
+                                        faster, and more efficient at build=
+ing distributed systems. Whether you are new
+                                        to developing distributed systems o=
+r an expert, the patterns and components
+                                        described in this e-Book can transf=
+orm your development of those systems from
+                                        art to science.
+                                    </p>
+
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 20px 20px 0px; padding: 0px;">
+                                        <strong><span style=3D"color:#005AA=
+3">Hands-On Kubernetes on Azure</span></strong>
+                                        - This 3rd e-Book will walk you thr=
+ough, what it takes to build and run
+                                        applications on top of the Azure Ku=
+bernetes Service (AKS). By the end of this
+                                        book, you'll have become proficient=
+ in running Kubernetes on Azureand leveraging
+                                        the tools required for deployment.<=
+/p>
+
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 20px 0px 0px; padding: 0px;">
+                                        Thank you for your interest,
+                                    </p>
+                                    <p style=3D"font-size: 16px; margin: 0p=
+x 20px 20px 0px; padding: 0px;">
+                                        Microsoft Team</p>
+
+
+                                </td>
+                                <td width=3D"4%"></td>
+                            </tr>
+
+                            <tr>
+                                <td style=3D"width: 4%">&nbsp;</td>
+                                <td style=3D"color: #424242; font-size: 19p=
+x; display: block; font-family: Segoe UI, sans-serif; text-align: left; pad=
+ding-bottom: 40px"                                     valign=3D"top">
+                                    <table bgcolor=3D"#FFFFFF" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"                                       =
+  role=3D"presentation" width=3D"100%">
+                                        <tr>
+                                            <td bgcolor=3D"#FFFFFF" style=
+=3D"background-color: #ffffff">&nbsp;</td>
+                                            <td align=3D"center" bgcolor=3D=
+"#0078D4" class=3D"span_cta2"                                              =
+   style=3D"background-color: #0078D4; font-size:19px; border-color: #0078D=
+4; width: 240px; border-width: 2px; border-style: solid; text-align: center=
+; padding: 10px 20px"                                                 width=
+=3D"240">
+                                                <a                         =
+                             href=3D"https://click.email.microsoftemail.com=
+/?qs=3D12b4517ae51277da74698f9a2c518b8f28f615b3a64f49afc910dbfabaee3db3980c=
+e625b78834be74c67a768f75982686c96d47ef8938d9"                              =
+                       style=3D"text-decoration: none; color: #ffffff; text=
+-align: center"                                                     target=
+=3D"_blank">
+                                                    <strong>Download the th=
+ree e-Books</strong> </a></td>
+                                            <td style=3D"background-color: =
+#ffffff">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width=3D"4%">&nbsp;</td>
+                            </tr>
+
+                        </table>
+                        <!-- footer -->
+                        <table bgcolor=3D"#ffffff" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation"                             =
+style=3D"font-family: Segoe UI, sans-serif; border-top:3px #0078D4 solid; b=
+order-bottom:0px; border-right:0px; border-left:0px"                       =
+      width=3D"100%">
+                            <tr>
+                                <td style=3D"width: 4%">&nbsp;</td>
+                                <td align=3D"left"                         =
+            style=3D"font-family: Segoe UI, sans-serif; font-size: 16px; co=
+lor: #000001; padding-top: 20px"                                     valign=
+=3D"top">
+                                    <table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0"                                         sty=
+le=3D"max-width:550px;" role=3D"presentation">
+                                        <tr>
+                                            <td                            =
+                     style=3D"font-family: Segoe UI, Arial, Helvetica, sans=
+-serif; font-size: 16px; color:#000001;">
+                                               =20
+                                                    <table width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:550px;" =
+role=3D"presentation">
+                                                        <tr>
+                                                        <td style=3D"font-f=
+amily: Segoe UI, Arial, Helvetica, sans-serif; font-size: 16px;  color:#000=
+001;" >
+                                                                <a href=3D"=
+https://click.email.microsoftemail.com/?qs=3D12b4517ae51277da6d2c141c014e51=
+920128678f38a81476bbce3ba8e9f678a08fed5ce0dd7b5f1e00f86fdf740f62a567abe5af9=
+ae62e1a" style=3D"text-decoration:underline;color:#000001">Unsubscribe</a> =
+| <a href=3D"https://click.email.microsoftemail.com/?qs=3D12b4517ae51277da6=
+782e1860781a07160b4bdbc7943887eb68f0442f201f2932095b2332f1d5d7f0b75998f9998=
+ed8b2071ce9ea0fa311d" style=3D"text-decoration:underline;color:#000001">Pri=
+vacy Statement</a><br>
+                                                    Microsoft Corporation<b=
+r>
+                                                    One Microsoft Way<br>
+                                                    Redmond, WA 98052=E2=80=
+=8B
+
+                                                        </td>
+                                                        </tr>
+                                                    </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <td width=3D"4%">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td bgcolor=3D"#ffffff" width=3D"4%">&nbsp;=
+</td>
+                                <td>
+                                    <table bgcolor=3D"#ffffff" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"                                       =
+  role=3D"presentation" style=3D"width: 100%!important" width=3D"100%">
+                                        <tr>
+                                            <td align=3D"left"             =
+                                    style=3D"color: #000001; font-family: S=
+egoe UI, sans-serif; margin: 1px; background-color: #ffffff; height: 44px; =
+text-align: left; padding-bottom: 24px; padding-top: 24px"                 =
+                                valign=3D"middle" width=3D"119">
+                                                <img alt=3D"Microsoft Foote=
+r" height=3D"24"                                                     src=3D=
+"http://image.email.microsoftemail.com/lib/fed215717367047f/m/6/CEEHQ174141=
+_msft_logo_header.png"                                                     =
+style=3D"display: block; border: 0px;" width=3D"111" />
+                                            </td>
+                                            <td bgcolor=3D"#ffffff" style=
+=3D"background-color: #ffffff">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td bgcolor=3D"#ffffff" width=3D"4%">&nbsp;=
+</td>
+                            </tr>
+                        </table>
+                        <!-- NEW footer END -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </main>
+    <img src=3D"https://click.email.microsoftemail.com/open.aspx?ffcb10-fe8=
+e13707c66067a73-fdfc1575746c037e7d157074-fe6f1570776401797716-fec21c7673650=
+17e-fe7415727465077e7514-ffca11" width=3D"1" height=3D"1">
+
+</body>
+
+</html>
