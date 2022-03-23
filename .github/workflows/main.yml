@@ -40,11 +40,11 @@ jobs:
           echo "release=$release" >> $GITHUB_ENV
             
           if [ "${{ matrix.target }}" == "win-x64" ]; then
-            echo "filename=$release_name.zip"
-            echo "filename=$release_name.zip" >> $GITHUB_ENV
+            echo "filename=$release.zip"
+            echo "filename=$release.zip" >> $GITHUB_ENV
           else
-            echo "filename=$release_name.tar.gz"
-            echo "filename=$release_name.tar.gz" >> $GITHUB_ENV
+            echo "filename=$release.tar.gz"
+            echo "filename=$release.tar.gz" >> $GITHUB_ENV
           fi
 
       - name: Build
