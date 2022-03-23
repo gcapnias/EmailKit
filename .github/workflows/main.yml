@@ -32,7 +32,8 @@ jobs:
       - name: Define enviroment
         shell: bash
         run: |
-          release_tag=$(git describe --tags --abbrev=0)
+          # release_tag=$(git describe --tags --abbrev=0)
+          release_tag=${{ env.GitVersion_SemVer }}
           echo "release_tag=$release_tag"
           echo "release_tag=$release_tag" >> $GITHUB_ENV
           release_name="EmailKit-${{ matrix.target }}-$release_tag"          
