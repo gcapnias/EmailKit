@@ -71,5 +71,6 @@ jobs:
           fail_on_unmatched_files: true
           files: ${{ env.release_filename }}
           generate_release_notes: true
+          tag_name: $ {{ env.release_tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
