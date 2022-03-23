@@ -45,9 +45,6 @@ jobs:
           # Build everything
           dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
 
-          # GitVersion_SemVer
-          echo "GitVersion_SemVer=${env.GitVersion_SemVer}"
-
           # Release tag
           release_tag=$(git describe --tags --abbrev=0)
           # release_tag=${{ env.GitVersion_SemVer }}
