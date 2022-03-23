@@ -29,39 +29,49 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
+      - name: Generate custom release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::EmailKit_$(date +"%Y.%m.%d_%H-%M")"
+          # tag_name: ${{ steps.tag.outputs.release_tag }}
+
       - name: Build
         shell: bash
         run: |
           # Release name
           release_name="EmailKit-${{ matrix.target }}"          
           echo "release_name=$release_name"
-          echo "release_name=$release_name" >> $GITHUB_ENV
           
           # Build everything
-          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "${{ env.release_name }}"
+          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+
+          # GitVersion_SemVer
+          echo "GitVersion_SemVer=${env.GitVersion_SemVer}"
 
           # Release tag
-          # release_tag=$(git describe --tags --abbrev=0)
-          release_tag=${{ env.GitVersion_SemVer }}
+          release_tag=$(git describe --tags --abbrev=0)
+          # release_tag=${{ env.GitVersion_SemVer }}
           echo "release_tag=$release_tag"
           echo "release_tag=$release_tag" >> $GITHUB_ENV
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
-            echo "release_filename=$release_name.zip"
-            echo "release_filename=$release_name.zip" >> $GITHUB_ENV
+            release_filename = "$release_name-$release_tag.zip"
+            echo "release_filename=$release_filename"
+            echo "release_filename=$release_filename" >> $GITHUB_ENV
             
             # Pack to zip for Windows
-            7z a -tzip "${{ env.release_filename }}" "./${{ env.release_name }}/*"
+            7z a -tzip "$release_filename" "./$release_name/*"
           else
-            echo "release_filename=$release_name.tar.gz"
-            echo "release_filename=$release_name.tar.gz" >> $GITHUB_ENV
+            release_filename = "$release_name-$release_tag.tar.gz"
+            echo "release_filename=$release_filename"
+            echo "release_filename=$release_filename" >> $GITHUB_ENV
             
-            tar czvf "${{ env.release_filename }}" "${{ env.release_name }}"
+            tar czvf "$release_filename" "$release_name"
           fi
 
           # Delete output directory
-          rm -r "${{ env.release_name }}"
+          rm -r "$release_name"
 
       - name: Publish
         id: publish
@@ -70,6 +80,6 @@ jobs:
           fail_on_unmatched_files: true
           files: ${{ env.release_filename }}
           generate_release_notes: true
-          tag_name: $ {{ env.release_tag }}
+          tag_name: ${{ env.GitVersion_SemVer }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
