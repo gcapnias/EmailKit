@@ -29,33 +29,47 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
+      - name: Define enviroment
+        shell: bash
+        run: |
+          tagname=$(git describe --tags --abbrev=0)
+          echo "version=$tagname"
+          echo "version=$tagname" >> $GITHUB_ENV
+          release="EmailKit-$tagname-${{ matrix.target }}"          
+          echo "release=$release"
+          echo "release=$release" >> $GITHUB_ENV
+            
+          if [ "${{ matrix.target }}" == "win-x64" ]; then
+            echo "filename=$release_name.zip"
+            echo "filename=$release_name.zip" >> $GITHUB_ENV
+          else
+            echo "filename=$release_name.tar.gz"
+            echo "filename=$release_name.tar.gz" >> $GITHUB_ENV
+          fi
+
       - name: Build
         shell: bash
         run: |
-          tag=$(git describe --tags --abbrev=0)
-          release_name="EmailKit-$tag-${{ matrix.target }}"
-
           # Build everything
-          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "${{ env.release }}"
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
             # Pack to zip for Windows
-            7z a -tzip "${release_name}.zip" "./${release_name}/*"
+            7z a -tzip "${{ env.filename }}" "./${{ env.release }}/*"
           else
-            tar czvf "${release_name}.tar.gz" "$release_name"
+            tar czvf "${{ env.filename }}" "${{ env.release }}"
           fi
 
           # Delete output directory
-          rm -r "$release_name"
+          rm -r "${{ env.release }}"
 
       - name: Publish
         id: publish
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/v')
         with:
           fail_on_unmatched_files: true
-          files: ./EmailKit*
+          files: ${{ env.filename }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
