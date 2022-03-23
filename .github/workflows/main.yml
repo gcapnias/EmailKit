@@ -29,36 +29,34 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
-      - name: Define enviroment
+      - name: Build
         shell: bash
         run: |
+          # Release name
+          release_name="EmailKit-${{ matrix.target }}"          
+          echo "release_name=$release_name"
+          echo "release_name=$release_name" >> $GITHUB_ENV
+          
+          # Build everything
+          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "${{ env.release_name }}"
+
+          # Release tag
           # release_tag=$(git describe --tags --abbrev=0)
           release_tag=${{ env.GitVersion_SemVer }}
           echo "release_tag=$release_tag"
           echo "release_tag=$release_tag" >> $GITHUB_ENV
-          release_name="EmailKit-${{ matrix.target }}-$release_tag"          
-          echo "release_name=$release_name"
-          echo "release_name=$release_name" >> $GITHUB_ENV
-            
-          if [ "${{ matrix.target }}" == "win-x64" ]; then
-            echo "release_filename=$release_name.zip"
-            echo "release_filename=$release_name.zip" >> $GITHUB_ENV
-          else
-            echo "release_filename=$release_name.tar.gz"
-            echo "release_filename=$release_name.tar.gz" >> $GITHUB_ENV
-          fi
-
-      - name: Build
-        shell: bash
-        run: |
-          # Build everything
-          dotnet publish EmailKit/EmailKit.csproj --framework netcoreapp3.1 --runtime "${{ matrix.target }}" -c Release -o "${{ env.release_name }}"
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
+            echo "release_filename=$release_name.zip"
+            echo "release_filename=$release_name.zip" >> $GITHUB_ENV
+            
             # Pack to zip for Windows
             7z a -tzip "${{ env.release_filename }}" "./${{ env.release_name }}/*"
           else
+            echo "release_filename=$release_name.tar.gz"
+            echo "release_filename=$release_name.tar.gz" >> $GITHUB_ENV
+            
             tar czvf "${{ env.release_filename }}" "${{ env.release_name }}"
           fi
 
