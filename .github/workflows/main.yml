@@ -53,14 +53,14 @@ jobs:
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
-            release_filename = "$release_name-$release_tag.zip"
+            release_filename="${release_name}-${release_tag}.zip"
             echo "release_filename=$release_filename"
             echo "release_filename=$release_filename" >> $GITHUB_ENV
             
             # Pack to zip for Windows
             7z a -tzip "$release_filename" "./$release_name/*"
           else
-            release_filename = "$release_name-$release_tag.tar.gz"
+            release_filename="${release_name}-${release_tag}.tar.gz"
             echo "release_filename=$release_filename"
             echo "release_filename=$release_filename" >> $GITHUB_ENV
             
